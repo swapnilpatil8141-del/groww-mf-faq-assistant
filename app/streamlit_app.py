@@ -80,11 +80,11 @@ def _styles() -> None:
         }
         [data-testid="stBottom"] {
             border-top:1px solid rgba(91,226,168,.16) !important;
-            padding:10px 0 12px !important;
+            padding:4px 0 6px !important;
         }
         [data-testid="stBottom"] [data-testid="stBottomBlockContainer"] {
-            padding-top:8px !important;
-            padding-bottom:8px !important;
+            padding-top:2px !important;
+            padding-bottom:2px !important;
         }
         .stChatFloatingInputContainer {
             padding:0 1.5rem !important;
@@ -102,9 +102,21 @@ def _styles() -> None:
             border-color:#48e6a0 !important;
             box-shadow:0 0 0 2px rgba(72,230,160,.12),0 12px 38px rgba(0,0,0,.38) !important;
         }
-        [data-testid="stBottom"] [data-testid="stChatInput"] textarea {
+        [data-testid="stBottom"] [data-testid="stChatInput"] textarea,
+        .stChatFloatingInputContainer [data-testid="stChatInput"] textarea {
+            min-height:24px !important;
+            height:24px !important;
+            padding:5px 12px !important;
+            line-height:1.35 !important;
             color:#f1faf4 !important;
             caret-color:#48e6a0;
+        }
+        [data-testid="stBottom"] [data-testid="stChatInput"] button,
+        .stChatFloatingInputContainer [data-testid="stChatInput"] button {
+            width:34px !important;
+            height:34px !important;
+            min-height:34px !important;
+            border-radius:11px !important;
         }
         [data-testid="stBottom"] [data-testid="stChatInput"] textarea::placeholder {
             color:#91a69b !important;
