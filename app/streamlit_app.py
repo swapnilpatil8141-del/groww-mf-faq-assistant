@@ -55,26 +55,44 @@ def _styles() -> None:
               var(--bg);
             color:var(--text);
         }
-        /* Remove Streamlit's pale floating header/toolbar; keep the workspace seamless. */
+        /* Remove Streamlit's floating Share/star/edit toolbar from the product canvas. */
+        [data-testid="stToolbar"],
+        [data-testid="stHeaderActionElements"] {
+            display:none !important;
+        }
         [data-testid="stHeader"] {
-            background:rgba(16,23,21,.96) !important;
-            border-bottom:1px solid rgba(91,226,168,.12);
+            height:0 !important;
+            min-height:0 !important;
+            background:transparent !important;
+            border:0 !important;
             box-shadow:none !important;
         }
-        [data-testid="stToolbar"] {right:1rem;}
-        [data-testid="stDecoration"] {display:none;}
-        /* Streamlit pins chat input to the viewport bottom. Style its dock as part of the app. */
+        [data-testid="stDecoration"] {display:none !important;}
+
+        /* Turn Streamlit's fixed chat dock into a seamless part of the dark workspace. */
+        [data-testid="stBottom"],
+        [data-testid="stBottom"] > div,
+        [data-testid="stBottom"] [data-testid="stBottomBlockContainer"],
+        .stChatFloatingInputContainer {
+            background:linear-gradient(180deg,rgba(16,23,21,.94),#101715 35%) !important;
+            border:0 !important;
+            box-shadow:none !important;
+        }
         [data-testid="stBottom"] {
-            background:linear-gradient(180deg,rgba(16,23,21,0),rgba(16,23,21,.94) 22%,#101715 100%) !important;
-            border-top:1px solid rgba(91,226,168,.13);
-            padding-top:12px;
+            border-top:1px solid rgba(91,226,168,.16) !important;
+            padding:10px 0 12px !important;
         }
-        [data-testid="stBottom"] > div {
-            background:transparent !important;
+        [data-testid="stBottom"] [data-testid="stBottomBlockContainer"] {
+            padding-top:8px !important;
+            padding-bottom:8px !important;
         }
-        [data-testid="stBottom"] [data-testid="stChatInput"] {
-            max-width:1120px;
-            margin:0 auto 8px;
+        .stChatFloatingInputContainer {
+            padding:0 1.5rem !important;
+        }
+        [data-testid="stBottom"] [data-testid="stChatInput"],
+        .stChatFloatingInputContainer [data-testid="stChatInput"] {
+            max-width:1120px !important;
+            margin:0 auto !important;
             background:linear-gradient(145deg,#1b2a24,#17231e) !important;
             border:1px solid rgba(72,230,160,.42) !important;
             border-radius:18px !important;
