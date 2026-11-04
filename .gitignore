@@ -1,0 +1,33 @@
+# Secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local data and vector database
+data/raw/*
+data/loaded/*
+data/parsed/*
+data/chunks/*
+data/embeddings/*
+data/chroma/*
+!data/**/.gitkeep
+
+# Generated outputs
+outputs/*
+!outputs/.gitkeep
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+# Local retrieval logs
+data/retrieval/*
+!data/retrieval/.gitkeep
+
+# Local diagnostic output
+retrieval-diagnostic.txt

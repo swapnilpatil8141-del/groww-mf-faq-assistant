@@ -1,0 +1,44 @@
+sources:
+  crawl_internal_links: false
+  urls:
+    - source_id: hdfc_amc_overview
+      url: "https://groww.in/mutual-funds/amc/hdfc-mutual-funds"
+    - source_id: hdfc_large_cap
+      url: "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth"
+    - source_id: hdfc_flexi_cap
+      url: "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth"
+    - source_id: hdfc_elss
+      url: "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth"
+    - source_id: hdfc_mid_cap
+      url: "https://groww.in/mutual-funds/hdfc-mid-cap-fund-direct-growth"
+
+embedding:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+
+vector_db:
+  provider: "chroma"
+  persist_directory: "./data/chroma"
+  collection_name: "hdfc_mutual_fund_faq"
+
+llm:
+  provider: "groq"
+  # Model ID can be overridden with LLM_MODEL in .env.
+  model: "qwen/qwen3.8-27b"
+  model_env: "LLM_MODEL"
+  api_key_env: "GROQ_API_KEY"
+  temperature: 0.2
+  max_tokens: 350
+  timeout_seconds: 30
+
+retrieval:
+  top_k: 4
+  relevance_threshold: null  # Optional cosine-distance cutoff; null keeps Top-K results
+
+answer:
+  max_sentences: 3
+  require_one_source_link: true
+
+chunking:
+  # Initial starting point; tune after inspecting actual source pages and retrieval tests.
+  max_chars: 1200
+  overlap_chars: 0
