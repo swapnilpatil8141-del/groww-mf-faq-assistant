@@ -55,9 +55,43 @@ def _styles() -> None:
               var(--bg);
             color:var(--text);
         }
-        [data-testid="stHeader"] {background:rgba(16,23,21,.82);}
+        /* Remove Streamlit's pale floating header/toolbar; keep the workspace seamless. */
+        [data-testid="stHeader"] {
+            background:rgba(16,23,21,.96) !important;
+            border-bottom:1px solid rgba(91,226,168,.12);
+            box-shadow:none !important;
+        }
         [data-testid="stToolbar"] {right:1rem;}
-        .block-container {max-width:1500px; padding:1.4rem 2rem 5.5rem;}
+        [data-testid="stDecoration"] {display:none;}
+        /* Streamlit pins chat input to the viewport bottom. Style its dock as part of the app. */
+        [data-testid="stBottom"] {
+            background:linear-gradient(180deg,rgba(16,23,21,0),rgba(16,23,21,.94) 22%,#101715 100%) !important;
+            border-top:1px solid rgba(91,226,168,.13);
+            padding-top:12px;
+        }
+        [data-testid="stBottom"] > div {
+            background:transparent !important;
+        }
+        [data-testid="stBottom"] [data-testid="stChatInput"] {
+            max-width:1120px;
+            margin:0 auto 8px;
+            background:linear-gradient(145deg,#1b2a24,#17231e) !important;
+            border:1px solid rgba(72,230,160,.42) !important;
+            border-radius:18px !important;
+            box-shadow:0 10px 38px rgba(0,0,0,.34),0 0 24px rgba(32,190,123,.07) !important;
+        }
+        [data-testid="stBottom"] [data-testid="stChatInput"]:focus-within {
+            border-color:#48e6a0 !important;
+            box-shadow:0 0 0 2px rgba(72,230,160,.12),0 12px 38px rgba(0,0,0,.38) !important;
+        }
+        [data-testid="stBottom"] [data-testid="stChatInput"] textarea {
+            color:#f1faf4 !important;
+            caret-color:#48e6a0;
+        }
+        [data-testid="stBottom"] [data-testid="stChatInput"] textarea::placeholder {
+            color:#91a69b !important;
+        }
+        .block-container {max-width:1500px; padding:1.4rem 2rem 7rem;}
         [data-testid="stSidebar"] {
             background:linear-gradient(180deg,#141e1b,#111916);
             border-right:1px solid var(--line);
