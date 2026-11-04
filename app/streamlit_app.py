@@ -327,7 +327,7 @@ def _render_trace(trace: dict) -> None:
 def _render_history() -> None:
     for message in st.session_state.messages:
         role = message.get("role", "assistant")
-        with st.chat_message(role, avatar="You" if role == "user" else "mf"):
+        with st.chat_message(role, avatar="👤" if role == "user" else "🌿"):
             st.markdown(message.get("content", ""))
             if role == "assistant":
                 _render_source(message.get("source") or {})
@@ -343,10 +343,10 @@ def _answer(question: str) -> None:
         return
 
     st.session_state.messages.append({"role": "user", "content": question})
-    with st.chat_message("user", avatar="You"):
+    with st.chat_message("user", avatar="👤"):
         st.markdown(question)
 
-    with st.chat_message("assistant", avatar="mf"):
+    with st.chat_message("assistant", avatar="🌿"):
         with st.spinner("Searching the configured source collection…"):
             result = answer_question(question, project_root=PROJECT_ROOT)
 
