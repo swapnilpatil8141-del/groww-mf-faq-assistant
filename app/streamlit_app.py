@@ -69,6 +69,38 @@ def _styles() -> None:
         }
         [data-testid="stDecoration"] {display:none !important;}
 
+        /* Remove the empty Streamlit sidebar header band above the brand.
+           Keep the collapse control visible and aligned to the top edge. */
+        [data-testid="stSidebarHeader"] {
+            height:0 !important;
+            min-height:0 !important;
+            padding:0 !important;
+            margin:0 !important;
+            background:transparent !important;
+        }
+        [data-testid="stSidebarHeader"] button {
+            position:absolute !important;
+            top:8px !important;
+            right:10px !important;
+            z-index:20 !important;
+        }
+        [data-testid="stSidebar"] > div,
+        [data-testid="stSidebarContent"],
+        [data-testid="stSidebarUserContent"] {
+            padding-top:0 !important;
+            margin-top:0 !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+            padding-top:0 !important;
+            margin-top:0 !important;
+        }
+        .block-container {
+            padding-top:.65rem !important;
+        }
+        .brand {
+            margin:0 0 1.15rem !important;
+        }
+
         /* Compact sidebar header spacing. */
         [data-testid="stSidebar"] > div,
         [data-testid="stSidebarContent"],
