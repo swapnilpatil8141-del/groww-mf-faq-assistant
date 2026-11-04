@@ -117,7 +117,7 @@ def _styles() -> None:
             margin:1.15rem 0 .25rem;
             padding:0;
         }
-        .composer-form [data-testid="stTextInput"] input {
+        [data-testid="stForm"] [data-testid="stTextInput"] input {
             min-height:48px !important;
             height:48px !important;
             padding:0 16px !important;
@@ -127,11 +127,11 @@ def _styles() -> None:
             border-radius:15px !important;
             box-shadow:0 5px 18px rgba(0,0,0,.16) !important;
         }
-        .composer-form [data-testid="stTextInput"] input::placeholder {
+        [data-testid="stForm"] [data-testid="stTextInput"] input::placeholder {
             color:#91a69b !important;
             opacity:1 !important;
         }
-        .composer-form [data-testid="stFormSubmitButton"] button {
+        [data-testid="stForm"] [data-testid="stFormSubmitButton"] button {
             min-height:48px !important;
             height:48px !important;
             width:52px !important;
@@ -141,7 +141,7 @@ def _styles() -> None:
             border:0 !important;
             font-size:20px !important;
         }
-        .composer-form [data-testid="stForm"] {
+        [data-testid="stForm"] {
             border:0 !important;
             padding:0 !important;
         }
