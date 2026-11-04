@@ -280,6 +280,34 @@ def _styles() -> None:
             .hero {padding:1.5rem 0 .7rem;}
             .topline {margin-bottom:1.1rem;}
         }
+
+        /* Final startup alignment override: Streamlit's later defaults were
+           reintroducing top padding after the earlier compact rules. */
+        [data-testid="stAppViewContainer"] {
+            padding-top:0 !important;
+            margin-top:0 !important;
+        }
+        [data-testid="stAppViewBlockContainer"],
+        .block-container {
+            padding-top:0.25rem !important;
+            margin-top:0 !important;
+        }
+        [data-testid="stSidebar"] > div,
+        [data-testid="stSidebarContent"],
+        [data-testid="stSidebarUserContent"] {
+            padding-top:0.25rem !important;
+            margin-top:0 !important;
+        }
+        [data-testid="stSidebarHeader"] {
+            height:0 !important;
+            min-height:0 !important;
+            padding:0 !important;
+            margin:0 !important;
+        }
+        .topline {
+            margin-top:0 !important;
+            padding-top:0 !important;
+        }
         </style>
         """.replace("#9cafa5;color:#9cafa5;", "#9cafa5;"),
         unsafe_allow_html=True,
