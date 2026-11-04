@@ -69,85 +69,91 @@ def _styles() -> None:
         }
         [data-testid="stDecoration"] {display:none !important;}
 
-        /* Turn Streamlit's fixed chat dock into a seamless part of the dark workspace. */
+        /* Compact sidebar header spacing. */
+        [data-testid="stSidebar"] > div,
+        [data-testid="stSidebarContent"],
+        [data-testid="stSidebarUserContent"] {
+            padding-top:0 !important;
+        }
+        [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+            gap:.55rem !important;
+        }
+        .brand { margin:0 0 1.15rem !important; }
+
+        /* Blend the fixed composer dock into the workspace. */
         [data-testid="stBottom"],
         [data-testid="stBottom"] > div,
         [data-testid="stBottom"] [data-testid="stBottomBlockContainer"],
         .stChatFloatingInputContainer {
-            background:linear-gradient(180deg,rgba(16,23,21,.94),#101715 35%) !important;
+            background:linear-gradient(180deg,rgba(16,23,21,.97),#101715) !important;
             border:0 !important;
             box-shadow:none !important;
         }
         [data-testid="stBottom"] {
-            border-top:1px solid rgba(91,226,168,.16) !important;
-            padding:4px 0 6px !important;
+            padding:7px 0 10px !important;
+            border-top:1px solid rgba(91,226,168,.10) !important;
         }
         [data-testid="stBottom"] [data-testid="stBottomBlockContainer"] {
-            padding-top:2px !important;
-            padding-bottom:2px !important;
-        }
-        .stChatFloatingInputContainer {
-            padding:0 1.5rem !important;
-        }
-        /* Compact, integrated composer: target Streamlit's outer wrapper and BaseWeb field. */
-        [data-testid="stBottom"] [data-testid="stChatInput"],
-        [data-testid="stChatInput"],
-        .stChatFloatingInputContainer [data-testid="stChatInput"] {
-            width:min(100%, 1000px) !important;
-            max-width:1000px !important;
-            height:58px !important;
-            min-height:58px !important;
-            max-height:58px !important;
-            box-sizing:border-box !important;
-            display:flex !important;
-            align-items:center !important;
+            max-width:1080px !important;
+            padding:0 22px !important;
             margin:0 auto !important;
-            padding:0 12px 0 20px !important;
-            overflow:hidden !important;
-            background:linear-gradient(145deg,#1b2a24,#17231e) !important;
-            border:1px solid rgba(72,230,160,.42) !important;
-            border-radius:999px !important;
-            box-shadow:0 8px 26px rgba(0,0,0,.28),0 0 22px rgba(32,190,123,.06) !important;
+        }
+        .stChatFloatingInputContainer { padding:0 22px 10px !important; }
+
+        /* Style the actual input surface and nested BaseWeb layers. */
+        [data-testid="stChatInput"] {
+            width:100% !important;
+            max-width:920px !important;
+            min-height:52px !important;
+            margin:0 auto !important;
+            padding:5px 9px 5px 18px !important;
+            box-sizing:border-box !important;
+            border:1px solid rgba(72,230,160,.34) !important;
+            border-radius:18px !important;
+            background:linear-gradient(145deg,#192720,#17231e) !important;
+            box-shadow:0 5px 18px rgba(0,0,0,.18) !important;
+        }
+        [data-testid="stChatInput"] > div,
+        [data-testid="stChatInput"] [data-baseweb="textarea"],
+        [data-testid="stChatInput"] [data-baseweb="base-input"],
+        [data-testid="stChatInput"] textarea {
+            background:transparent !important;
+            color:#f1faf4 !important;
+            border:0 !important;
+            box-shadow:none !important;
         }
         [data-testid="stChatInput"] [data-baseweb="textarea"],
         [data-testid="stChatInput"] [data-baseweb="base-input"] {
-            background:transparent !important;
-            border:0 !important;
-            min-height:34px !important;
-            height:34px !important;
-            box-shadow:none !important;
+            min-height:38px !important;
+            height:38px !important;
             align-items:center !important;
         }
         [data-testid="stChatInput"] textarea {
             min-height:28px !important;
             height:28px !important;
             max-height:28px !important;
-            padding:5px 8px !important;
+            padding:5px 7px !important;
             line-height:18px !important;
             resize:none !important;
-            overflow-y:auto !important;
-            color:#f1faf4 !important;
             caret-color:#48e6a0 !important;
-            background:transparent !important;
         }
         [data-testid="stChatInput"] textarea::placeholder {
             color:#91a69b !important;
             opacity:1 !important;
         }
         [data-testid="stChatInput"] button {
-            width:36px !important;
-            min-width:36px !important;
-            height:36px !important;
-            min-height:36px !important;
-            border-radius:50% !important;
-            flex:0 0 36px !important;
+            width:34px !important;
+            min-width:34px !important;
+            height:34px !important;
+            min-height:34px !important;
+            border-radius:11px !important;
             background:#35d995 !important;
             color:#092016 !important;
             border:0 !important;
         }
         [data-testid="stChatInput"]:focus-within {
             border-color:#48e6a0 !important;
-            box-shadow:0 0 0 2px rgba(72,230,160,.12),0 10px 30px rgba(0,0,0,.32) !important;
+            box-shadow:0 0 0 2px rgba(72,230,160,.10),0 7px 20px rgba(0,0,0,.22) !important;
         }
         .block-container {max-width:1500px; padding:1.4rem 2rem 7rem;}
         [data-testid="stSidebar"] {
