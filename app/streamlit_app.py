@@ -91,7 +91,7 @@ def _styles() -> None:
         .hero h1 {color:#f0f8f3;font-size:clamp(32px,4.3vw,52px);
             line-height:1.12;letter-spacing:-.055em;font-weight:820;
             max-width:820px;margin:0 auto 15px;}
-        .hero p {color:#9caf a5;color:#9caf a5; font-size:15px;line-height:1.7;
+        .hero p {color:#9cafa5;color:#9cafa5; font-size:15px;line-height:1.7;
             max-width:720px;margin:0 auto;}
         .prompt-hint {color:#6f8d80;text-align:center;font-size:10px;
             letter-spacing:.16em;text-transform:uppercase;font-weight:800;
@@ -151,7 +151,7 @@ def _styles() -> None:
             .topline {margin-bottom:1.1rem;}
         }
         </style>
-        """.replace("#9caf a5;color:#9caf a5;", "#9caf a5;"),
+        """.replace("#9cafa5;color:#9cafa5;", "#9cafa5;"),
         unsafe_allow_html=True,
     )
 
