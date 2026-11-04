@@ -89,37 +89,65 @@ def _styles() -> None:
         .stChatFloatingInputContainer {
             padding:0 1.5rem !important;
         }
+        /* Compact, integrated composer: target Streamlit's outer wrapper and BaseWeb field. */
         [data-testid="stBottom"] [data-testid="stChatInput"],
+        [data-testid="stChatInput"],
         .stChatFloatingInputContainer [data-testid="stChatInput"] {
-            max-width:1120px !important;
+            width:min(100%, 1000px) !important;
+            max-width:1000px !important;
+            height:58px !important;
+            min-height:58px !important;
+            max-height:58px !important;
+            box-sizing:border-box !important;
+            display:flex !important;
+            align-items:center !important;
             margin:0 auto !important;
+            padding:0 12px 0 20px !important;
+            overflow:hidden !important;
             background:linear-gradient(145deg,#1b2a24,#17231e) !important;
             border:1px solid rgba(72,230,160,.42) !important;
-            border-radius:18px !important;
-            box-shadow:0 10px 38px rgba(0,0,0,.34),0 0 24px rgba(32,190,123,.07) !important;
+            border-radius:999px !important;
+            box-shadow:0 8px 26px rgba(0,0,0,.28),0 0 22px rgba(32,190,123,.06) !important;
         }
-        [data-testid="stBottom"] [data-testid="stChatInput"]:focus-within {
-            border-color:#48e6a0 !important;
-            box-shadow:0 0 0 2px rgba(72,230,160,.12),0 12px 38px rgba(0,0,0,.38) !important;
-        }
-        [data-testid="stBottom"] [data-testid="stChatInput"] textarea,
-        .stChatFloatingInputContainer [data-testid="stChatInput"] textarea {
-            min-height:24px !important;
-            height:24px !important;
-            padding:5px 12px !important;
-            line-height:1.35 !important;
-            color:#f1faf4 !important;
-            caret-color:#48e6a0;
-        }
-        [data-testid="stBottom"] [data-testid="stChatInput"] button,
-        .stChatFloatingInputContainer [data-testid="stChatInput"] button {
-            width:34px !important;
-            height:34px !important;
+        [data-testid="stChatInput"] [data-baseweb="textarea"],
+        [data-testid="stChatInput"] [data-baseweb="base-input"] {
+            background:transparent !important;
+            border:0 !important;
             min-height:34px !important;
-            border-radius:11px !important;
+            height:34px !important;
+            box-shadow:none !important;
+            align-items:center !important;
         }
-        [data-testid="stBottom"] [data-testid="stChatInput"] textarea::placeholder {
+        [data-testid="stChatInput"] textarea {
+            min-height:28px !important;
+            height:28px !important;
+            max-height:28px !important;
+            padding:5px 8px !important;
+            line-height:18px !important;
+            resize:none !important;
+            overflow-y:auto !important;
+            color:#f1faf4 !important;
+            caret-color:#48e6a0 !important;
+            background:transparent !important;
+        }
+        [data-testid="stChatInput"] textarea::placeholder {
             color:#91a69b !important;
+            opacity:1 !important;
+        }
+        [data-testid="stChatInput"] button {
+            width:36px !important;
+            min-width:36px !important;
+            height:36px !important;
+            min-height:36px !important;
+            border-radius:50% !important;
+            flex:0 0 36px !important;
+            background:#35d995 !important;
+            color:#092016 !important;
+            border:0 !important;
+        }
+        [data-testid="stChatInput"]:focus-within {
+            border-color:#48e6a0 !important;
+            box-shadow:0 0 0 2px rgba(72,230,160,.12),0 10px 30px rgba(0,0,0,.32) !important;
         }
         .block-container {max-width:1500px; padding:1.4rem 2rem 7rem;}
         [data-testid="stSidebar"] {
