@@ -31,10 +31,9 @@ def _source_registry_notice(config: dict) -> str | None:
     ]
     if any("groww.in" in url for url in urls):
         return (
-            "Source limitation: this prototype currently uses five configured Groww "
-            "pages. The architecture specifies official HDFC/SEBI/AMFI sources. "
-            "These third-party pages must not be represented as official AMC or "
-            "regulator sources."
+            "This prototype currently uses five Groww pages, not official "
+            "HDFC AMC, SEBI or AMFI sources. Verify important details with the "
+            "relevant official source."
         )
     return None
 
@@ -61,7 +60,7 @@ def _inject_styles() -> None:
         [data-testid="stHeader"] { background: rgba(247,250,248,.86); }
         .block-container {
             max-width: 980px;
-            padding-top: 2.1rem;
+            padding-top: 1.25rem;
             padding-bottom: 6rem;
         }
         [data-testid="stSidebar"] {
@@ -70,7 +69,7 @@ def _inject_styles() -> None:
         }
         .brand-row {
             display: flex; align-items: center; gap: 11px;
-            margin: 0 0 1.7rem 0;
+            margin: 0 0 1rem 0;
         }
         .brand-mark {
             width: 38px; height: 38px; border-radius: 12px;
@@ -82,12 +81,12 @@ def _inject_styles() -> None:
         .brand-name { font-size: 15px; font-weight: 750; line-height: 1.15; }
         .brand-caption { font-size: 11px; color: var(--muted); margin-top: 3px; }
         .hero {
-            padding: 1.65rem 1.7rem 1.45rem;
+            padding: 1.2rem 1.45rem 1.1rem;
             border: 1px solid #e4eee8;
             border-radius: 22px;
             background: linear-gradient(125deg, #ffffff 20%, #f0fbf5 100%);
             box-shadow: 0 10px 35px rgba(23,65,43,.045);
-            margin-bottom: 1.1rem;
+            margin-bottom: .8rem;
         }
         .eyebrow {
             color: var(--brand-green-dark); text-transform: uppercase;
@@ -116,7 +115,7 @@ def _inject_styles() -> None:
         div.stButton > button {
             border-radius: 13px; border: 1px solid #e0eae4;
             background: #fff; color: #263a2e;
-            min-height: 64px; white-space: normal;
+            min-height: 54px; white-space: normal;
             text-align: left; padding: 12px 14px;
             font-size: 13px; font-weight: 600;
             box-shadow: 0 3px 12px rgba(20,60,38,.035);
@@ -152,7 +151,7 @@ def _inject_styles() -> None:
             border: 1px solid #f0dfb3; background: #fffaf0;
             color: #74551b; border-radius: 12px;
             padding: 11px 14px; font-size: 12px; line-height: 1.5;
-            margin: .8rem 0 1rem;
+            margin: .55rem 0 .7rem;
         }
         .safety-note {
             color: #6d7b72; font-size: 11px; line-height: 1.5;
@@ -335,7 +334,6 @@ def main() -> None:
             unsafe_allow_html=True,
         )
 
-    _render_brand()
     st.markdown(
         """
         <section class="hero">
