@@ -14,7 +14,7 @@ data/loaded/*
 data/parsed/*
 data/chunks/*
 data/embeddings/*
-data/chroma/*
+# data/chroma/*
 !data/**/.gitkeep
 
 # Generated outputs
